@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="transferir (1).png" type="image/x-icon">
+<link rel="shortcut icon" href="transferir (1).png" type="image/x-icon">
+  <title>Banco Monteiro</title>
+</head>
+<body>
+  <header>
+    <button class="button">
+      <span class="actual-text">&nbsp;Banco&nbsp;</span>
+      <span class="hover-text" aria-hidden="true">&nbsp;Banco&nbsp;</span>
+    </button>
+  </header>
+  <nav>
+    <ul>
+        <li><a href="http://127.0.0.1:5500/banco.html">Inicio</a></li>
+        <li><a href="http://127.0.0.1:5500/contas.html">Contas</a></li>
+        <li><a href="http://127.0.0.1:5500/transferencias.html">Transferências</a></li>
+        <li><a href="http://127.0.0.1:5500/contato.html">Contato</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="account">
+      <h2 class="h2">Sua Conta</h2>
+      <p>Saldo: R$1000</p>
+      <button id="withdrawButton">Sacar</button>
+      <button id="depositButton">Depositar</button>
+    </section>
+    <section class="transfer">
+      <h2 class="h2">Transferência</h2>
+      <label for="transferAmount">Valor da Transferência:</label>
+      <input type="number" id="transferAmount" step="0.01">
+      <button id="transferButton">Transferir</button>
+      <p id="transferResult"></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Todos os direitos reservados a João Monteiro.</p>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const balanceDisplay = document.querySelector(".account p");
+      const withdrawButton = document.getElementById("withdrawButton");
+      const depositButton = document.getElementById("depositButton");
+      const transferAmountInput = document.getElementById("transferAmount");
+      const transferButton = document.getElementById("transferButton");
+      const transferResult = document.getElementById("transferResult");
+
+      let balance = 1000;
+
+      balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+
+      withdrawButton.addEventListener("click", function () {
+        // Implementação do saque
+      });
+
+      depositButton.addEventListener("click", function () {
+        // Implementação do depósito
+      });
+
+      transferButton.addEventListener("click", function () {
+        const amount = parseFloat(transferAmountInput.value);
+        if (isNaN(amount) || amount <= 0 || amount > balance) {
+          transferResult.textContent = "Valor inválido ou insuficiente para transferência.";
+        } else {
+          balance -= amount;
+          balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+          transferResult.textContent = `Transferência de R$${amount.toFixed(2)} realizada com sucesso.`;
+        }
+      });
+    });
+    
+    document.addEventListener("DOMContentLoaded", function () {
+  const balanceDisplay = document.querySelector(".account p");
+  const withdrawButton = document.getElementById("withdrawButton");
+  const depositButton = document.getElementById("depositButton");
+
+  let balance = 500;
+
+  balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+
+  withdrawButton.addEventListener("click", function () {
+    const amount = parseFloat(prompt("Digite o valor a ser sacado:"));
+    if (isNaN(amount) || amount <= 0 || amount > balance) {
+      alert("Valor inválido ou insuficiente para saque.");
+    } else {
+      balance -= amount;
+      balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+    }
+  });
+
+  depositButton.addEventListener("click", function () {
+    const amount = parseFloat(prompt("Digite o valor a ser depositado:"));
+    if (isNaN(amount) || amount <= 0) {
+      alert("Valor inválido para depósito.");
+    } else {
+      balance += amount;
+      balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+    }
+  });
+});
+  </script>
+</body>
+</html>

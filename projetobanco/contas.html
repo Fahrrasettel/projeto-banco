@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="transferir (1).png" type="image/x-icon">
+<link rel="shortcut icon" href="transferir (1).png" type="image/x-icon">
+  <title>Banco Monteiro</title>
+</head>
+<style>
+    /* Seus estilos atuais aqui */
+
+.accounts-list {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.accounts-list h2 {
+  color: #333;
+}
+
+.accounts-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.accounts-list li {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+</style>
+<body>
+  <header>
+    <button data-text="Awesome" class="button">
+      <span class="actual-text">&nbsp;Banco&nbsp;</span>
+      <span class="hover-text" aria-hidden="true">&nbsp;Banco&nbsp;</span>
+    </button>
+  </header>
+  <nav>
+    <ul>
+        <li><a href="http://127.0.0.1:5500/banco.html">Inicio</a></li>
+        <li><a href="http://127.0.0.1:5500/contas.html">Contas</a></li>
+        <li><a href="http://127.0.0.1:5500/transferencias.html">Transferências</a></li>
+        <li><a href="http://127.0.0.1:5500/contato.html">Contato</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="account">
+      <h2 class="h2">Sua Conta</h2>
+      <p id="saldoConta">Saldo: R$1000</p>
+      <button id="withdrawButton">Sacar</button>
+      <button id="depositButton">Depositar</button>
+    </section>
+    <section class="accounts-list">
+      <h2 class="h2">Outras Contas</h2>
+      <ul>
+        <li id="contaPessoal">Conta Pessoal - Saldo: R$1500 <button onclick="sacar(1500, 'contaPessoal')">Sacar R$100</button> <button onclick="depositar(100, 'contaPessoal')">Depositar R$100</button></li>
+        <li id="contaEmpresarial">Conta Empresarial - Saldo: R$5000 <button onclick="sacar(5000, 'contaEmpresarial')">Sacar R$200</button> <button onclick="depositar(200, 'contaEmpresarial')">Depositar R$200</button></li>
+        <li id="contaPoupanca">Conta Poupança - Saldo: R$3000 <button onclick="sacar(3000, 'contaPoupanca')">Sacar R$50</button> <button onclick="depositar(50, 'contaPoupanca')">Depositar R$50</button></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Todos os direitos reservados a João Monteiro.</p>
+  </footer>
+  <script>
+    let saldo = 1000;
+    
+    function atualizarSaldo() {
+      document.getElementById("saldoConta").textContent = `Saldo: R$${saldo.toFixed(2)}`;
+    }
+    
+    function sacar(valor, idConta) {
+      if (saldo >= valor) {
+        saldo -= valor;
+        atualizarSaldo();
+        alert(`Saque de R$${valor.toFixed(2)} realizado na ${idConta}.`);
+      } else {
+        alert("Saldo insuficiente para saque.");
+      }
+    }
+    
+    function depositar(valor, idConta) {
+      saldo += valor;
+      atualizarSaldo();
+      alert(`Depósito de R$${valor.toFixed(2)} realizado na ${idConta}.`);
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      atualizarSaldo();
+    });
+    
+    document.addEventListener("DOMContentLoaded", function () {
+  const balanceDisplay = document.querySelector(".account p");
+  const withdrawButton = document.getElementById("withdrawButton");
+  const depositButton = document.getElementById("depositButton");
+
+  let balance = 500;
+
+  balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+
+  withdrawButton.addEventListener("click", function () {
+    const amount = parseFloat(prompt("Digite o valor a ser sacado:"));
+    if (isNaN(amount) || amount <= 0 || amount > balance) {
+      alert("Valor inválido ou insuficiente para saque.");
+    } else {
+      balance -= amount;
+      balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+    }
+  });
+
+  depositButton.addEventListener("click", function () {
+    const amount = parseFloat(prompt("Digite o valor a ser depositado:"));
+    if (isNaN(amount) || amount <= 0) {
+      alert("Valor inválido para depósito.");
+    } else {
+      balance += amount;
+      balanceDisplay.textContent = `Saldo: R$${balance.toFixed(2)}`;
+    }
+  });
+});
+  </script>
+</body>
+</html>

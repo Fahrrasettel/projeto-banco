@@ -1,0 +1,167 @@
+@charset "utf-8";
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background: linear-gradient(to bottom, rgb(180, 2, 250), rgb(0, 0, 0));
+    color: white;
+    text-align: center;
+    padding: 37pt;
+    margin-bottom: 0; /* Remova a margem inferior */
+  }
+  
+
+  a{
+    color: white;
+  }
+
+  
+  nav ul {
+    list-style: none;
+    color: white;
+    background: linear-gradient(to right,rgb(180, 2, 250), rgb(8, 52, 248));
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 0; /* Remova a margem superior */
+    margin-bottom: 0;
+  }
+  
+  
+  nav li:hover {
+    background: #d70ee9;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(180, 2, 250),
+                0 0 25px rgb(180, 2, 250),
+                0 0 50px rgb(180, 2, 250),
+                0 0 100px rgb(180, 2, 250);
+  }
+  nav li  {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+
+  nav a {
+    color:  white;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 5rem;
+    background: linear-gradient(to left, rgb(180, 2, 250), rgb(3, 26, 238));
+    margin-top: 0;
+  }
+  
+  .account {
+    border: 1px solid #ccc;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account h2 {
+    color: #333;
+  }
+  
+  .account p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  #withdrawButton, #depositButton {
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  #withdrawButton:hover, #depositButton:hover {
+    background-color: #00a18c;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0.2rem;
+  }
+  
+  #withdrawButton:hover {
+    background-color: #ca0b0b;
+    color: black;
+  }
+  #depositButton:hover {
+    background-color: #fbff00;
+    color: black;
+  }
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #ff3748;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+ 
